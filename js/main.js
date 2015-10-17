@@ -19,6 +19,15 @@ Reveal.initialize({
 
 var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
 
+var options = {
+    segmentShowStroke : true,
+
+    segmentStrokeColor : "#222",
+
+    responsive: true,
+
+}
+
 var barChartData = {
     labels : ["Seattle","San Francisco","Portland","Austin","New Orleans","Los Angeles","Denver", "Hartford", "Boston"],
     datasets : [
@@ -63,7 +72,7 @@ var lineChartData = {
     var data1 = [
                     {
                         value: 96,
-                        color: "#616161",
+                        color: "#4caf50",
                         label: "normal"
                     },
                     {
@@ -72,17 +81,11 @@ var lineChartData = {
                         lable: "LGBT"
                     }
                 ]
-
 window.onload = function(){
-
     var opinions = document.getElementById("opinions").getContext("2d");
-    window.myLine = new Chart(opinions).Line(lineChartData, {
-        responsive: true
-    });
-    var cities = document.getElementById("cities").getContext("2d");
-    window.myBar = new Chart(cities).Bar(barChartData, {
-        responsive : true
-    });
+    window.myLine = new Chart(opinions).Line(lineChartData, opinions);
+    var city = document.getElementById("cities").getContext("2d");
+    window.myBar = new Chart(city).Bar(barChartData, opinions);
     var ctx = document.getElementById("LGBTPer").getContext("2d");
-    window.myChart = new Chart(ctx).Pie(data1);
+    window.myChart = new Chart(ctx).Pie(data1, options);
 }
