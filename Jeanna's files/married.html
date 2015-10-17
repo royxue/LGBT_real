@@ -1,0 +1,246 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='/Library/Frameworks/R.framework/Versions/3.2/Resources/library/rCharts/libraries/nvd3/css/nv.d3.css'>
+    <link rel='stylesheet' href='/Library/Frameworks/R.framework/Versions/3.2/Resources/library/rCharts/libraries/nvd3/css/rNVD3.css'>
+    
+    <script src='/Library/Frameworks/R.framework/Versions/3.2/Resources/library/rCharts/libraries/nvd3/js/jquery-1.8.2.min.js' type='text/javascript'></script>
+    <script src='/Library/Frameworks/R.framework/Versions/3.2/Resources/library/rCharts/libraries/nvd3/js/d3.v3.min.js' type='text/javascript'></script>
+    <script src='/Library/Frameworks/R.framework/Versions/3.2/Resources/library/rCharts/libraries/nvd3/js/nv.d3.min-new.js' type='text/javascript'></script>
+    <script src='/Library/Frameworks/R.framework/Versions/3.2/Resources/library/rCharts/libraries/nvd3/js/fisheye.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'chart1cef5c27b39e' class = 'rChart nvd3'></div>    
+    <script type='text/javascript'>
+ $(document).ready(function(){
+      drawchart1cef5c27b39e()
+    });
+    function drawchart1cef5c27b39e(){  
+      var opts = {
+ "dom": "chart1cef5c27b39e",
+"width":    800,
+"height":    400,
+"x": "Year",
+"y": "Total",
+"group": "Couple.type",
+"type": "lineChart",
+"title": "Married",
+"id": "chart1cef5c27b39e" 
+},
+        data = [
+ {
+ "Year": 2014,
+"Total": 334829,
+"Couple.type": "same-sex" 
+},
+{
+ "Year": 2013,
+"Total": 251695,
+"Couple.type": "same-sex" 
+},
+{
+ "Year": 2012,
+"Total": 181922,
+"Couple.type": "same-sex" 
+},
+{
+ "Year": 2011,
+"Total": 168092,
+"Couple.type": "same-sex" 
+},
+{
+ "Year": 2010,
+"Total": 152335,
+"Couple.type": "same-sex" 
+},
+{
+ "Year": 2009,
+"Total": 152121,
+"Couple.type": "same-sex" 
+},
+{
+ "Year": 2008,
+"Total": 142486,
+"Couple.type": "same-sex" 
+},
+{
+ "Year": 2007,
+"Total": 340848,
+"Couple.type": "same-sex" 
+},
+{
+ "Year": 2006,
+"Total": 385752,
+"Couple.type": "same-sex" 
+},
+{
+ "Year": 2005,
+"Total": 392314,
+"Couple.type": "same-sex" 
+},
+{
+ "Year": 2014,
+"Total": 163239,
+"Couple.type": "Male-Male" 
+},
+{
+ "Year": 2013,
+"Total": 117535,
+"Couple.type": "Male-Male" 
+},
+{
+ "Year": 2012,
+"Total": 80727,
+"Couple.type": "Male-Male" 
+},
+{
+ "Year": 2011,
+"Total": 69522,
+"Couple.type": "Male-Male" 
+},
+{
+ "Year": 2010,
+"Total": 68513,
+"Couple.type": "Male-Male" 
+},
+{
+ "Year": 2009,
+"Total": 66274,
+"Couple.type": "Male-Male" 
+},
+{
+ "Year": 2008,
+"Total": 62185,
+"Couple.type": "Male-Male" 
+},
+{
+ "Year": 2007,
+"Total": 190004,
+"Couple.type": "Male-Male" 
+},
+{
+ "Year": 2006,
+"Total": 217617,
+"Couple.type": "Male-Male" 
+},
+{
+ "Year": 2005,
+"Total": 214477,
+"Couple.type": "Male-Male" 
+},
+{
+ "Year": 2014,
+"Total": 171590,
+"Couple.type": "Female-Female" 
+},
+{
+ "Year": 2013,
+"Total": 134160,
+"Couple.type": "Female-Female" 
+},
+{
+ "Year": 2012,
+"Total": 101195,
+"Couple.type": "Female-Female" 
+},
+{
+ "Year": 2011,
+"Total": 98570,
+"Couple.type": "Female-Female" 
+},
+{
+ "Year": 2010,
+"Total": 83822,
+"Couple.type": "Female-Female" 
+},
+{
+ "Year": 2009,
+"Total": 85847,
+"Couple.type": "Female-Female" 
+},
+{
+ "Year": 2008,
+"Total": 80301,
+"Couple.type": "Female-Female" 
+},
+{
+ "Year": 2007,
+"Total": 150844,
+"Couple.type": "Female-Female" 
+},
+{
+ "Year": 2006,
+"Total": 168135,
+"Couple.type": "Female-Female" 
+},
+{
+ "Year": 2005,
+"Total": 177937,
+"Couple.type": "Female-Female" 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        
+          
+        
+
+        
+        
+        
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+    
+    <script></script>    
+  </body>
+</html>
