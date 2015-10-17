@@ -29,9 +29,6 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
 	</head>
 
 	<body>
@@ -56,27 +53,8 @@
 
 				<!-- Example of nested vertical slides -->
 				<section>
-					<section>
-						<h2>Debunking the Stereotypes</h2>
-						<canvas id="LGBTPer" width="400" height="400"></canvas>
-
-<!-- 						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a> -->
-					</section>
-					<section>
-						<h2>Debunking the Stereotypes</h2>
-						<p>Add Cool Graphs</p>
-					</section>
-					<section>
-						<h2>Debunking the Stereotypes</h2>
-						<p>Add Cool Graphs</p>
-<!-- 						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a> -->
-					</section>
+					<h2>Percentage of LGBT in U.S.</h2>
+					<canvas id="LGBTPer" width="400" height="400"></canvas>
 				</section>
 
 				<section>
@@ -258,20 +236,20 @@
 				<section>
 					<h2>Pretty Code</h2>
 					<pre><code class="hljs" data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
+						function linkify( selector ) {
+						  if( supports3DTransforms ) {
 
-    var nodes = document.querySelectorAll( selector );
+						    var nodes = document.querySelectorAll( selector );
 
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
+						    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+						      var node = nodes[i];
 
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
+						      if( !node.className ) {
+						        node.className += ' roll';
+						      }
+						    }
+						  }
+						}
 					</code></pre>
 					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
 				</section>
